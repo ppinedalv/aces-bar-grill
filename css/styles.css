@@ -622,6 +622,10 @@ p{ margin:0 0 1em; color:var(--ink3); }
 }
 
 /* utility */
+.sm-only-break{ display:none; }
+@media (max-width:640px){
+  .sm-only-break{ display:inline; }
+}
 .sr-only{
   position:absolute; width:1px;height:1px; padding:0;margin:-1px;
   overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
