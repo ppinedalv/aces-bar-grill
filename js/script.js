@@ -38,20 +38,22 @@
     lightboxInner.innerHTML = '';
   }
 
-  Array.prototype.slice.call(document.querySelectorAll('.aces-gallery__tile')).forEach(function(tile){
-    tile.addEventListener('click', function(){
-      openLightbox(tile.getAttribute('data-full'), tile.getAttribute('data-type'));
-    });
-    tile.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){
-        e.preventDefault();
+  if (lightbox && lightboxInner && lightboxClose){
+    Array.prototype.slice.call(document.querySelectorAll('.aces-gallery__tile')).forEach(function(tile){
+      tile.addEventListener('click', function(){
         openLightbox(tile.getAttribute('data-full'), tile.getAttribute('data-type'));
-      }
+      });
+      tile.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){
+          e.preventDefault();
+          openLightbox(tile.getAttribute('data-full'), tile.getAttribute('data-type'));
+        }
+      });
     });
-  });
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function(e){ if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLightbox(); });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e){ if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLightbox(); });
+  }
 
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
