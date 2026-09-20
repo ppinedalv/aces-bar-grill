@@ -218,7 +218,7 @@ p{ margin:0 0 1em; color:var(--ink3); }
     position:relative;
   }
   .aces-header__logo{ order:0; height:48px; width:130px; }
-  .aces-header__logo img{ height:92px; top:-10px; }
+  .aces-header__logo img{ height:106px; top:-12px; }
 
   .aces-header__toggle{
     display:block;
